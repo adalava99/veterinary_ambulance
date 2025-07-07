@@ -4,14 +4,14 @@ from .views import *
 urlpatterns = [
     #Owners
     #GET
-    path('get-owners', return_owners),
-    path('owners/<int:owner_id>/pets', pets_by_owner),
+    path('owner', return_owners),
+    path('owner/<int:owner_id>/pets', pets_by_owner),
     #POST
-    path('owners/create', create_owner),
+    path('owner/create', create_owner),
     #DELETE
-    path('owners/delete/<int:owner_id>', delete_owner),
+    path('owner/delete/<int:owner_id>', delete_owner),
     #PATCH
-    path('owners/update/<int:owner_id>', update_owner),
+    path('owner/update/<int:owner_id>', update_owner),
 
     #Pets
     path('pets/create', create_pet),
