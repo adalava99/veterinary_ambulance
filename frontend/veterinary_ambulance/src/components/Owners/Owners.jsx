@@ -3,10 +3,13 @@ import { useEffect, useState } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import OwnerModal from './OwnerModal';
 import { Button } from '@mui/material';
+import OwnerPetsModal from './OwnerPetsModal';
 
 const Owners = () => {
     const [owners, setOwners] = useState([]);
     const [modalOpen, setModalOpen] = useState(false);
+    const [modalOwnerPetOpen, setModalOwnerPetOpen] = useState(false);
+
     const [selectedOwner, setSelectedOwner] = useState({});
 
     useEffect(() => {
@@ -68,6 +71,20 @@ const Owners = () => {
                 </>
             )
         },
+        {
+            field: 'pets', headerName: 'Pets', width: 200
+            , renderCell: (params) => (
+                <>
+                    <Button
+                        variant="outlined"
+                        onClick={() => {
+                            setSelectedOwner(params.row);
+                            setModalOwnerPetOpen(true);
+                        }}
+                    >See pets</Button>
+                </>
+            )
+        },
 
 
     ];
@@ -88,6 +105,10 @@ const Owners = () => {
                 setModalOpen={setModalOpen}
                 selectedOwner={selectedOwner}
                 refreshOwners={refreshOwners} />
+            <OwnerPetsModal
+                modalOpen={modalOwnerPetOpen}
+                setModalOpen={setModalOwnerPetOpen}
+                selectedOwner={selectedOwner} />
         </>
     )
 }

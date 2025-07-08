@@ -11,6 +11,18 @@ export const getOwners = async () => {
     }
 }
 
+export const getOwnerPets = async (ownerId) => {
+    try {
+        const response = await fetch(`http://localhost:8000/clinic/owner/${ownerId}/pets`)
+        const parsedResponse = await response.json()
+        return parsedResponse;
+    }
+    catch (error) {
+        console.error(error);
+        return null;
+    }
+}
+
 export const createOwners = async (ownerData) => {
     try {
         const response = await fetch('http://localhost:8000/clinic/owner/create',
