@@ -126,8 +126,3 @@ This is a mini full-stack application for Veterinary Ambulance management.
 - `vite.config.js` — Vite configuration (customize port here)
 - `.gitignore` — excludes `node_modules/`, builds, etc.
 
----
-
-## ⚠️ Notes
-
-- **Do not commit** `env/` or `node_modules/` — both are ignored via `.gitignore`.
